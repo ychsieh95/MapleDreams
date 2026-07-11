@@ -1,0 +1,173 @@
+@page
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/lib/table-col-width/css/table-col-width.min.css" type="text/css" />
+    <style type="text/css">
+        .card-img-top {
+            max-height: 128px;
+            max-width: 128px;
+        }
+    </style>
+}
+
+@section head_scripts {
+    <script src="~/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="~/lib/cookie-controller/cookie-controller.min.js" type="text/javascript"></script>
+    @* <script type="text/javascript">
+        console.log(getCookie('review_status'));
+        if (getCookie('review_status') !== 'true') {
+            window.location.href = './warning';
+            eraseCookie('review_status');
+            $('#nav').css('display', 'none');
+            $('#main_content').css('display', 'none');
+            $('#warning_content').css('display', '');
+        }
+    </script> *@
+}
+
+<div class="container">
+    <h1 class="text-center my-3">這是首頁</h1>
+    @* <div class="my-3">
+        <div class="d-flex justify-content-center">
+            <img src="~/images/taiwan-family/group-photo.jpg" class="img-thumbnail" />
+        </div>
+        <div class="d-flex justify-content-center">
+            <span class="text-center"><strong>Title</strong></span>
+        </div>
+    </div> *@
+    <hr />
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card border-info">
+                <h5 class="card-header text-white bg-info">網站內容聲明</h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        網站資料內容來源包括熱心網友提供，以及 <a href="#suggest">推薦網頁</a> 中所列。若有侵權還煩請來信 <a href="mailto:ychsieh95@gmail.com">ychsieh95@gmail.com</a> 聯繫告知，網站將立即下架該內容。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="d-sm-none col-12 mt-3"></div>
+        <div class="col-sm-4">
+            <div class="card border-info">
+                <h5 class="card-header text-white bg-info">網站資料授權</h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        除已明確標示出處之資料，其餘內容皆以 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> CC BY-NC-SA 4.0 <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"></a> 授權，授權範圍詳見網站所列。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="d-sm-none col-12 mt-3"></div>
+        <div class="col-sm-4">
+            <div class="card border-info">
+                <h5 class="card-header text-white bg-info">其他說明</h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        若有任何資料提供，或對於網站有建議、錯誤回報等，煩請來信 <a href="mailto:ychsieh95@gmail.com">ychsieh95@gmail.com</a> 通知，網站將會在第一時間回應，感謝您的協助。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h1 class="my-3">近期更新<a asp-page="/UpdatedLogs" style="font-size: 1rem;"><i class="fas fa-list-alt fa-fw"></i></a></h1>
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-info text-center">
+                <th class="td-col-1">#</th>
+                <th class="td-col-1">日期</th>
+                <th class="td-col-8 text-left">內容</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var updatedLogList = new MapleDreams.Pages.UpdatedLogsModel().UpdatedLogList;
+                int i = updatedLogList.Count;
+                foreach (var key in updatedLogList.Keys.OrderByDescending(key => key.Ticks))
+                {
+                    var logItem = updatedLogList[key];
+                        <tr class="text-center">
+                            <td>@(i--)</td>
+                            <td>@(key.ToString("yyyy-MM-dd"))</td>
+                            <td class="text-left">
+                                @for (int j = 0; j < logItem.Count; j++)
+                                {
+                                    @Html.Raw(logItem[j]);
+                                    if (j != logItem.Count - 1)
+                                    {
+                                        <br />
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    if (updatedLogList.Count - i >= 3)
+                    {
+                        break;
+                    }
+                }
+            }
+        </tbody>
+    </table>
+    <hr />
+    <h1 class="my-3">頁底按鈕功能</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-info text-center">
+                <th class="td-col-1">#</th>
+                <th class="td-col-1">圖示</th>
+                <th class="td-col-8 text-left">內容</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <td>1</td>
+                <td><i class="fas fa-user-circle fa-fw"></i></td>
+                <td class="text-left">關於作者</td>
+            </tr>
+            <tr class="text-center">
+                <td>2</td>
+                <td><i class="fas fa-user-shield fa-fw"></i></td>
+                <td class="text-left">隱私權政策</td>
+            </tr>
+            <tr class="text-center">
+                <td>3</td>
+                <td><i class="fas fa-home fa-fw"></i></td>
+                <td class="text-left">返回首頁</td>
+            </tr>
+            <tr class="text-center">
+                <td>4</td>
+                <td><i class="fas fa-arrow-circle-up fa-fw"></i></td>
+                <td class="text-left">回最上層</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <h1 class="my-3" id="suggest">推薦連結</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-info text-center">
+                <th class="td-col-1">#</th>
+                <th class="td-col-9 text-left">文章</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center">
+                <td>1</td>
+                <td class="text-left"><a href="https://dms113.com/">夢時代 MapleDreams 官網</a></td>
+            </tr>
+            <tr class="text-center">
+                <td>2</td>
+                <td class="text-left"><a href="https://discord.gg/q3NQqCeuyt">夢時代 MapleDreams Discord</a></td>
+            </tr>
+            <tr class="text-center">
+                <td>3</td>
+                <td class="text-left"><a href="https://discord.gg/k9MQddw59d">夢時代圖書館 Discord</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

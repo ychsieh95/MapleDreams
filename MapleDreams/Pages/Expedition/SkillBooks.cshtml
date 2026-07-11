@@ -1,0 +1,219 @@
+@page
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "技能書掉落";
+}
+
+<div class="container">
+    <div asp-validation-summary="All" class="my-3"></div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#warrior-collapse" aria-expanded="true">
+                劍士
+            </button>
+        </h5>
+        <div id="warrior-collapse" class="collapse">
+            <table class="card-body table table-bordered">
+                <thead>
+                    <tr class="alert-secondary">
+                        <th style="width: 15%">分類</th>
+                        <th style="width: 25%">技能</th>
+                        <th style="width: 20%">母書</th>
+                        <th style="width: 20%">20</th>
+                        <th style="width: 20%">30</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="6">共通</td><td>楓葉祝福</td><td></td><td>闇黑龍王</td><td></td></tr>
+                    <tr><td>武神防禦</td><td></td><td>海怒斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td>格擋</td><td></td><td>拉圖斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td>絕對引力</td><td></td><td>海怒斯</td><td>海怒斯</td></tr>
+                    <tr><td>究極神盾</td><td></td><td>海怒斯</td><td>拉圖斯</td></tr>
+                    <tr><td>究極突刺</td><td></td><td>海怒斯</td><td>海怒斯</td></tr>
+                    <tr><td rowspan="3">英雄</td><td>進階鬥氣</td><td>殘暴炎魔</td><td>拉圖斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td>無雙劍舞</td><td></td><td>雄獅王</td><td>殘暴炎魔</td></tr>
+                    <tr><td>鬥氣爆發</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                    <tr><td rowspan="4">聖騎士</td><td>聖靈之劍</td><td></td><td>雄獅王</td><td>N/A</td></tr>
+                    <tr><td>聖靈之棍</td><td></td><td>雄獅王</td><td>N/A</td></tr>
+                    <tr><td>屬性強化</td><td>殘暴炎魔</td><td>N/A</td><td>N/A</td></tr>
+                    <tr><td>騎士衝擊波</td><td></td><td>拉圖斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td>黑騎士</td><td>黑暗力量</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#bowman-collapse" aria-expanded="true">
+                弓箭手
+            </button>
+        </h5>
+        <div id="bowman-collapse" class="collapse">
+            <table class="card-body table table-bordered">
+                <thead>
+                    <tr class="alert-secondary">
+                        <th style="width: 15%">分類</th>
+                        <th style="width: 25%">技能</th>
+                        <th style="width: 20%">母書</th>
+                        <th style="width: 20%">20</th>
+                        <th style="width: 20%">30</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="3">共通</td><td>楓葉祝福</td><td></td><td>闇黑龍王</td><td></td></tr>
+                    <tr><td>會心之眼</td><td></td><td>拉圖斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td>龍魂之箭</td><td></td><td>海怒斯</td><td>海怒斯</td></tr>
+                    <tr><td rowspan="5">箭神</td><td>弓術精通</td><td></td><td>拉圖斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td>暴風神射</td><td></td><td>雄獅王</td><td>殘暴炎魔</td></tr>
+                    <tr><td>召喚鳳凰</td><td></td><td>海怒斯</td><td>拉圖斯</td></tr>
+                    <tr><td>牽制射擊</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                    <tr><td>念力集中</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                    <tr><td rowspan="5">神射手</td><td>弩術精通</td><td></td><td>拉圖斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td>光速神弩</td><td></td><td>拉圖斯</td><td>雄獅王</td></tr>
+                    <tr><td>召喚銀隼</td><td></td><td>海怒斯</td><td>拉圖斯</td></tr>
+                    <tr><td>黑暗狙擊</td><td></td><td>海怒斯</td><td>雄獅王</td></tr>
+                    <tr><td>必殺狙擊</td><td></td><td>雄獅王</td><td>殘暴炎魔</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#magician-collapse" aria-expanded="true">
+                法師
+            </button>
+        </h5>
+        <div id="magician-collapse" class="collapse">
+            <table class="card-body table table-bordered">
+                <thead>
+                    <tr class="alert-secondary">
+                        <th style="width: 15%">分類</th>
+                        <th style="width: 25%">技能</th>
+                        <th style="width: 20%">母書</th>
+                        <th style="width: 20%">20</th>
+                        <th style="width: 20%">30</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="4">共通</td><td>楓葉祝福</td><td></td><td>闇黑龍王</td><td></td></tr>
+                    <tr><td>核爆術</td><td></td><td>拉圖斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td>魔力無限</td><td></td><td>拉圖斯</td><td>雄獅王</td></tr>
+                    <tr><td>魔法反射</td><td></td><td>殘暴炎魔</td><td>海怒斯</td></tr>
+                    <tr><td rowspan="3">共通</td><td>聖盾護鎧</td><td></td><td>雄獅王</td><td>殘暴炎魔</td></tr>
+                    <tr><td>天使之箭</td><td>殘暴炎魔</td><td>雄獅王</td><td>殘暴炎魔</td></tr>
+                    <tr><td>天怒</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                    <tr><td rowspan="4">共通</td><td>炎靈地獄</td><td></td><td>海怒斯</td><td>拉圖斯</td></tr>
+                    <tr><td>召喚冰魔</td><td></td><td>海怒斯</td><td>拉圖斯</td></tr>
+                    <tr><td>劇毒麻痺</td><td></td><td>海怒斯</td><td>雄獅王</td></tr>
+                    <tr><td>火流星</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                    <tr><td rowspan="4">共通</td><td>寒冰地獄</td><td></td><td>雄獅王</td><td>拉圖斯</td></tr>
+                    <tr><td>召喚火炎神</td><td></td><td>海怒斯</td><td>拉圖斯</td></tr>
+                    <tr><td>閃電連擊</td><td></td><td>海怒斯</td><td>雄獅王</td></tr>
+                    <tr><td>暴風雪</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#thief-collapse" aria-expanded="true">
+                盜賊
+            </button>
+        </h5>
+        <div id="thief-collapse" class="collapse">
+            <table class="card-body table table-bordered">
+                <thead>
+                    <tr class="alert-secondary">
+                        <th style="width: 15%">分類</th>
+                        <th style="width: 25%">技能</th>
+                        <th style="width: 20%">母書</th>
+                        <th style="width: 20%">20</th>
+                        <th style="width: 20%">30</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td rowspan="4">共通</td><td>楓葉祝福</td><td></td><td>闇黑龍王</td><td></td></tr>
+                    <tr><td>瞬身迴避</td><td></td><td>海怒斯</td><td>雄獅王</td></tr>
+                    <tr><td>挑釁</td><td></td><td>拉圖斯</td><td>闇黑龍王</td></tr>
+                    <tr><td>飛毒殺</td><td></td><td>拉圖斯</td><td>殘暴炎魔</td></tr>
+                    <tr><td rowspan="4">暗影神偷</td><td>忍影瞬殺</td><td></td><td>海怒斯</td><td>海怒斯</td></tr>
+                    <tr><td>致命暗殺</td><td></td><td>克雷賽爾</td><td>雄獅王</td></tr>
+                    <tr><td>煙霧彈</td><td></td><td>雄獅王</td><td>闇黑龍王</td></tr>
+                    <tr><td>瞬步連擊</td><td></td><td>拉圖斯</td><td>克雷賽爾</td></tr>
+                    <tr><td rowspan="3">夜使者</td><td>無形鏢</td><td></td><td>拉圖斯</td><td>克雷賽爾</td></tr>
+                    <tr><td>忍術風影</td><td></td><td>雄獅王</td><td>殘暴炎魔</td></tr>
+                    <tr><td>三飛閃</td><td>殘暴炎魔</td><td>雄獅王</td><td>闇黑龍王</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#pirate-collapse" aria-expanded="true">
+                海盜
+            </button>
+        </h5>
+        <div id="pirate-collapse" class="collapse">
+            <table class="card-body table table-bordered">
+                <thead>
+                    <tr class="alert-secondary">
+                        <th style="width: 15%">分類</th>
+                        <th style="width: 25%">技能</th>
+                        <th style="width: 20%">母書</th>
+                        <th style="width: 20%">20</th>
+                        <th style="width: 20%">30</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>共通</td><td>楓葉祝福</td><td></td><td>闇黑龍王</td><td></td></tr>
+                    <tr><td rowspan="8">拳霸</td><td>魔龍降臨</td><td></td><td>克雷賽爾</td><td>雄獅王</td></tr>
+                    <tr><td>元氣彈</td><td></td><td>克雷賽爾</td><td>N/A</td></tr>
+                    <tr><td>鬥神降世</td><td></td><td>雄獅王</td><td>N/A</td></tr>
+                    <tr><td>閃‧爆破</td><td></td><td>克雷賽爾</td><td>雄獅王</td></tr>
+                    <tr><td>閃‧索命</td><td></td><td>拉圖斯</td><td>雄獅王</td></tr>
+                    <tr><td>閃‧連殺</td><td></td><td>克雷賽爾</td><td>拉圖斯</td></tr>
+                    <tr><td>最終極速</td><td></td><td>克雷賽爾</td><td>N/A</td></tr>
+                    <tr><td>時間置換</td><td></td><td>雄獅王</td><td>闇黑龍王</td></tr>
+                    <tr><td rowspan="8">槍神</td><td>瞬‧冰火連擊</td><td></td><td>拉圖斯</td><td>雄獅王</td></tr>
+                    <tr><td>砲台章魚王</td><td></td><td>克雷賽爾</td><td>N/A</td></tr>
+                    <tr><td>海鷗特戰隊</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                    <tr><td>瞬‧迅雷</td><td></td><td>克雷賽爾</td><td>雄獅王</td></tr>
+                    <tr><td>海盜加農砲</td><td></td><td>雄獅王</td><td>殘暴炎魔</td></tr>
+                    <tr><td>海盜魚雷</td><td></td><td>克雷賽爾</td><td>克雷賽爾</td></tr>
+                    <tr><td>心靈控制</td><td></td><td>拉圖斯</td><td>N/A</td></tr>
+                    <tr><td>精準砲擊</td><td></td><td>海怒斯</td><td>N/A</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#aran-collapse" aria-expanded="true">
+                狂狼勇士
+            </button>
+        </h5>
+        <div id="aran-collapse" class="collapse">
+            <table class="card-body table table-bordered">
+                <thead>
+                    <tr class="alert-secondary">
+                        <th style="width: 15%">分類</th>
+                        <th style="width: 25%">技能</th>
+                        <th style="width: 20%">母書</th>
+                        <th style="width: 20%">20</th>
+                        <th style="width: 20%">30</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>共通</td><td>楓葉祝福</td><td></td><td>闇黑龍王</td><td></td></tr>
+                    <tr><td rowspan="7">狂狼勇士</td><td>攻擊戰術</td><td></td><td>克雷賽爾</td><td>闇黑龍王</td></tr>
+                    <tr><td>終極攻擊</td><td></td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                    <tr><td>靈魂戰鬥</td><td></td><td>拉圖斯</td><td>雄獅王</td></tr>
+                    <tr><td>防禦戰術</td><td>克雷賽爾</td><td>雄獅王</td><td>殘暴炎魔</td></tr>
+                    <tr><td>終極之矛</td><td>拉圖斯</td><td>殘暴炎魔</td><td>闇黑龍王</td></tr>
+                    <tr><td>極冰暴風</td><td>海怒斯</td><td>克雷賽爾</td><td>海怒斯</td></tr>
+                    <tr><td>宙斯之盾</td><td></td><td>拉圖斯</td><td>雄獅王、闇黑龍王</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

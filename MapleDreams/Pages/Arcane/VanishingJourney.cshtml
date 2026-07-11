@@ -1,0 +1,49 @@
+@page
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "消逝的旅途";
+}
+
+<div class="container">
+    <div asp-validation-summary="All" class="my-3"></div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#introduction-collapse" aria-expanded="true">
+                消逝的旅途
+            </button>
+        </h5>
+        <div id="introduction-collapse" class="collapse show">
+            <div class="card-body">
+                <p>任務前置</p>
+                <ul>
+                    <li>在進入無名村落後，可先到村落周圍（開心、憤怒、悲傷、歡樂之地）打怪並取得楓葉祝福 30 技能書（機率掉落、無法交易）。</li>
+                    <li>在成功進化楓葉祝福 30 後，向卡歐取得祕法符文：奧術探索者。</li>
+                </ul>
+                <hr />
+                <p>在取得祕法符文：奧術探索者後，可以向以下 NPC 進行相關功能：</p>
+                <table class="table">
+                    <thead>
+                        <tr class="alert-secondary">
+                            <th>NPC</th>
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>休菲凱曼 奧術之河嚮導</td>
+                            <td>查詢導引、每日任務快速通關</td>
+                        </tr>
+                        <tr>
+                            <td>蘿娜 每日任務</td>
+                            <td>進行每日任務</td>
+                        </tr>
+                        <tr>
+                            <td>妮娜 艾爾達斯光譜</td>
+                            <td>升級<b>祕法符文：奧術探索者</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

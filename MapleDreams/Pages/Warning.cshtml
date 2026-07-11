@@ -1,0 +1,59 @@
+@page
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "";
+}
+
+@section styles {
+    <style type="text/css">
+        .card-img-top {
+            max-height: 128px;
+            max-width: 128px;
+        }
+    </style>
+}
+
+@section body_scripts {
+    <script src="~/lib/cookie-controller/cookie-controller.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        const clickReviewStatus = (status) => {
+            setCookie('review_status', status, '1');
+            if (status === 'true') {
+                window.location.replace(window.location.protocol + '//' + window.location.host);
+            }
+            else {
+                window.close();
+            }
+        }
+
+        $(document).ready(() => {
+            eraseCookie('review_status');
+            $('#nav').css('display', 'none');
+        });
+    </script>
+}
+
+<div class="row justify-content-center" id="warning_content">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card my-3">
+            <div class="text-center">
+                <img class="card-img-top" src="~/images/warning/warning.png" alt="Warning" />
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-danger">
+                    <strong>警告</strong>
+                </h5>
+                <p class="card-text">親愛的使用者您好，依據中華民國國家通訊傳播委員會 (NCC) ，<strong>《數位中介服務法》</strong>公布業者自律條款規定，中介服務提供者依法應主動偵測與識別使用者不當內容。</p>
+                <p class="card-text">本頁面<strong>疑似涵蓋不當內容</strong>，已由平台自主遮蔽。</p>
+                <hr />
+                <p class="card-text">關於本警告，僅為當《數位中介服務法》通過後可能會出現的冰山一隅，並可能廣泛出現於網路──包括但不限於網站、通訊軟體──中，為維護民主與言論自由，希望使用者可以多關注此政策發展。</p>
+                <p class="card-text">關於《數位中介服務法》爭議，可參閱維基百科條目：<a href="https://zh.wikipedia.org/zh-hant/%E6%95%B8%E4%BD%8D%E4%B8%AD%E4%BB%8B%E6%9C%8D%E5%8B%99%E6%B3%95%E7%88%AD%E8%AD%B0%E4%BA%8B%E4%BB%B6">數位中介服務法爭議事件</a>。</p>
+                <div class="text-right">
+                    <button class="btn btn-outline-success bg-success text-white" onclick="clickReviewStatus('true');">了解風險並繼續瀏覽本網站</button>
+                    <button class="btn btn-outline-danger bg-danger text-white" onclick="clickReviewStatus('false');">離開本網站</button>
+                </div>
+                <p class="card-text"><small class="text-muted">Last updated 2022-08-18</small></p>
+            </div>
+        </div>
+    </div>
+</div>

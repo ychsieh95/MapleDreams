@@ -1,0 +1,193 @@
+@page
+@model MapleDreams.Pages.Calculators.WizardModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "法師傷害計算機";
+}
+
+<div class="container">
+    <div asp-validation-summary="All" class="my-3"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card border-primary">
+                <h5 class="card-header text-white bg-primary">角色數值</h5>
+                <div class="card-body">
+                    <div class="form-horizontal">
+                        <form method="post">
+                            <div class="form-group">
+                                <label class="bmd-label-floating" for="Level">智力</label>
+                                <input asp-for="INT" type="number" class="form-control" min="0" />
+                            </div>
+                            <div class="form-group">
+                                <label class="bmd-label-floating" for="Level">魔法攻擊力（AP）</label>
+                                <input asp-for="AP" type="number" class="form-control" min="0" />
+                            </div>
+                            <div class="form-group">
+                                <label class="bmd-label-floating" for="Level">怪物血量</label>
+                                <input asp-for="MonsterHP" type="number" class="form-control" min="0" />
+                            </div>
+                            <div>
+                                <label class="bmd-label-static">職業</label>
+                                <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="Bishop" value="true" @(Model.Bishop ? "checked" : "") />主教
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="ArchMage" value="true" @(Model.ArchMage ? "checked" : "") />大魔導士
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="bmd-label-static">技能等級</label>
+                                <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="SkillLevel20" value="true" @(Model.SkillLevel20 ? "checked" : "") />２０
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="SkillLevel30" value="true" @(Model.SkillLevel30 ? "checked" : "") />３０
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <input type="submit" class="btn btn-primary" value="計算" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-md-none col-12 mt-3"></div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card border-success">
+                        <h5 class="card-header text-white bg-success">傷害計算結果</h5>
+                        <div class="card-body">
+                            @if (Model.Bishop)
+                            {
+                            <p>主教</p>
+                            <ul>
+                                @if (Model.SkillLevel20)
+                                {
+                                <li>天怒 20　 ：@((int)Model.Genesis20)</li>
+                                <li>天怒 20 剋：@((int)(Model.Genesis20 * 1.5))</li>
+                                }
+                                @if (Model.SkillLevel30)
+                                {
+                                <li>天怒 30 　：@((int)Model.Genesis30)</li>
+                                <li>天怒 30 剋：@((int)(Model.Genesis30 * 1.5))</li>
+                                }
+                            </ul>
+                            }
+                            @if (Model.Bishop && Model.ArchMage)
+                            {
+                            <hr />
+                            }
+                            @if (Model.ArchMage)
+                            {
+                            <p>大魔導士（無屬性杖）</p>
+                            <ul>
+                                @if (Model.SkillLevel20)
+                                {
+                                <li>範圍 20　 ：@((int)Model.Blizzard20)</li>
+                                <li>範圍 20 剋：@((int)(Model.Blizzard20 * 1.5))</li>
+                                }
+                                @if (Model.SkillLevel30)
+                                {
+                                <li>範圍 30　 ：@((int)Model.Blizzard30)</li>
+                                <li>範圍 30 剋：@((int)(Model.Blizzard30 * 1.5))</li>
+                                }
+                            </ul>
+                            <hr />
+                            <p>大魔導士（有屬性杖）</p>
+                            <ul>
+                                @if (Model.SkillLevel20)
+                                {
+                                <li>範圍 20　 （主屬性杖）：@((int)(Model.Blizzard20 * 1.0 * 1.25))</li>
+                                <li>範圍 20 剋（主屬性杖）：@((int)(Model.Blizzard20 * 1.5 * 1.25))</li>
+                                <li>範圍 20　 （副屬性杖）：@((int)(Model.Blizzard20 * 1.0 * 1.10))</li>
+                                <li>範圍 20 剋（副屬性杖）：@((int)(Model.Blizzard20 * 1.5 * 1.10))</li>
+                                <li>範圍 20　 （創世長杖）：@((int)(Model.Blizzard20 * 1.0 * 1.25))</li>
+                                <li>範圍 20 剋（創世長杖）：@((int)(Model.Blizzard20 * 1.5 * 1.25))</li>
+                                }
+                                @if (Model.SkillLevel30)
+                                {
+                                <li>範圍 30　 （主屬性杖）：@((int)(Model.Blizzard30 * 1.0 * 1.10))</li>
+                                <li>範圍 30 剋（主屬性杖）：@((int)(Model.Blizzard30 * 1.5 * 1.10))</li>
+                                <li>範圍 30　 （副屬性杖）：@((int)(Model.Blizzard30 * 1.0 * 1.30))</li>
+                                <li>範圍 30 剋（副屬性杖）：@((int)(Model.Blizzard30 * 1.5 * 1.30))</li>
+                                <li>範圍 30　 （創世長杖）：@((int)(Model.Blizzard30 * 1.0 * 1.30))</li>
+                                <li>範圍 30 剋（創世長杖）：@((int)(Model.Blizzard30 * 1.5 * 1.30))</li>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-3"></div>
+                <div class="col-12">
+                    <div class="card border-success">
+                        <h5 class="card-header text-white bg-success">一刀 AP 需求計算結果</h5>
+                        <div class="card-body">
+                            @if (Model.Bishop)
+                            {
+                            <p>主教</p>
+                            <ul>
+                                @if (Model.SkillLevel20)
+                                {
+                                <li>天怒 20　 ：@((int)Model.OneHitAPDict["Genesis20"])</li>
+                                <li>天怒 20 剋：@((int)Model.OneHitAPDict["Genesis20Type"])</li>
+                                }
+                                @if (Model.SkillLevel30)
+                                {
+                                <li>天怒 30 　：@((int)Model.OneHitAPDict["Genesis30"])</li>
+                                <li>天怒 30 剋：@((int)Model.OneHitAPDict["Genesis30Type"])</li>
+                                }
+                            </ul>
+                            }
+                            <hr />
+                            @if (Model.ArchMage)
+                            {
+                            <p>大魔導士（無屬性杖）</p>
+                            <ul>
+                                @if (Model.SkillLevel20)
+                                {
+                                <li>範圍 20　 ：@((int)Model.OneHitAPDict["Blizzard20"])</li>
+                                <li>範圍 20 剋：@((int)Model.OneHitAPDict["Blizzard20Type"])</li>
+                                }
+                                @if (Model.SkillLevel30)
+                                {
+                                <li>範圍 30　 ：@((int)Model.OneHitAPDict["Blizzard30"])</li>
+                                <li>範圍 30 剋：@((int)Model.OneHitAPDict["Blizzard30Type"])</li>
+                                }
+                            </ul>
+                            <hr />
+                            <p>大魔導士（有屬性杖）</p>
+                            <ul>
+                                @if (Model.SkillLevel20)
+                                {
+                                <li>範圍 20　 （主屬性杖）：@((int)Model.OneHitAPDict["Blizzard20Extend1.25"])</li>
+                                <li>範圍 20 剋（主屬性杖）：@((int)Model.OneHitAPDict["Blizzard20TypeExtend1.25"])</li>
+                                <li>範圍 20　 （副屬性杖）：@((int)Model.OneHitAPDict["Blizzard20Extend1.10"])</li>
+                                <li>範圍 20 剋（副屬性杖）：@((int)Model.OneHitAPDict["Blizzard20TypeExtend1.10"])</li>
+                                <li>範圍 20　 （創世長杖）：@((int)Model.OneHitAPDict["Blizzard20Extend1.30"])</li>
+                                <li>範圍 20 剋（創世長杖）：@((int)Model.OneHitAPDict["Blizzard20TypeExtend1.30"])</li>
+                                }
+                                @if (Model.SkillLevel30)
+                                {
+                                <li>範圍 30　 （主屬性杖）：@((int)Model.OneHitAPDict["Blizzard30Extend1.25"])</li>
+                                <li>範圍 30 剋（主屬性杖）：@((int)Model.OneHitAPDict["Blizzard30TypeExtend1.25"])</li>
+                                <li>範圍 30　 （副屬性杖）：@((int)Model.OneHitAPDict["Blizzard30Extend1.10"])</li>
+                                <li>範圍 30 剋（副屬性杖）：@((int)Model.OneHitAPDict["Blizzard30TypeExtend1.10"])</li>
+                                <li>範圍 30　 （創世長杖）：@((int)Model.OneHitAPDict["Blizzard30Extend1.30"])</li>
+                                <li>範圍 30 剋（創世長杖）：@((int)Model.OneHitAPDict["Blizzard30TypeExtend1.30"])</li>
+                                }
+                            </ul>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

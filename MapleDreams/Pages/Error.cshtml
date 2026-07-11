@@ -1,0 +1,22 @@
+@page
+@model ErrorModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "ERROR";
+}
+
+<div class="container text-center">
+    <img src="~/images/crying-baby.png" class="my-3" style="width: 100%; max-width: 598px;" />
+</div>
+<div class="container text-left">
+    <div class="alert alert-danger">
+        @if (!string.IsNullOrEmpty(Model.RequestId))
+        {
+            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+            <br />
+            <strong>Error ID:</strong> <code>@Model.ErrorId</code>
+            <br />
+            <span>An error occurred while processing your request.</span>
+        }
+    </div>
+</div>

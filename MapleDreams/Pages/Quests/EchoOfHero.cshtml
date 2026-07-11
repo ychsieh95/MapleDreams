@@ -1,0 +1,36 @@
+@page
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "英雄的回響";
+}
+
+<div class="container">
+    <div asp-validation-summary="All" class="my-3"></div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#introduction-collapse" aria-expanded="true">
+                英雄的回響
+            </button>
+        </h5>
+        <div id="introduction-collapse" class="collapse show">
+            <div class="card-body">
+                <h6>任務前置</h6>
+                <ul>
+                    <li>玩家等級達到 200。</li>
+                </ul>
+                <hr />
+                <h6>任務流程</h6>
+                <ol>
+                    <li>
+                        到天空之城塔&lt;8 層&gt;與雕像對話。
+                    </li>
+                    <li>
+                        再次與雕像對話，取得英雄的回響技能。
+                        <br />
+                        <img class="img-thumbnail" src="/images/quests/echo_of_hero/echo_of_hero.png" />
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

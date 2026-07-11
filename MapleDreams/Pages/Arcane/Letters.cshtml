@@ -1,0 +1,272 @@
+@page
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "冒險家巔峰之路";
+}
+
+<div class="container">
+    <div asp-validation-summary="All" class="my-3"></div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#introduction-collapse" aria-expanded="true">
+                簡易說明
+            </button>
+        </h5>
+        <div id="introduction-collapse" class="collapse show">
+            <div class="card-body">
+                <ul>
+                    <li>若要使用克爾遺失的文件（下簡稱克爾）完成所有打信任務，總計需要 62 張。</li>
+                    <li>
+                        完成所有打信任務需 16 億2000 萬楓幣，分別為：
+                        <ul>
+                            <li>每次完成打信任務會需要繳交 2000 萬楓幣。</li>
+                            <li>完成所有打信任務後需要再找特魯購買巔峰研究報告冊，需要 10 億楓幣。</li>
+                        </ul>
+                    </li>
+                    <li>完成任務後可透過三扇門的奧術之河守衛-阿傑雷進入消逝的旅途入口。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card my-3">
+        <h5 class="mb-0 alert-info">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#list-collapse">
+                任務列表
+            </button>
+        </h5>
+        <div id="list-collapse" class="collapse">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead class="alert-info">
+                        <tr>
+                            <th>分類</th>
+                            <th>開始地點</th>
+                            <th>NPC</th>
+                            <th>推薦打信地點</th>
+                            <th>克爾需求數</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>維多利亞港</td>
+                            <td>維多利亞港</td>
+                            <td>迪昂克</td>
+                            <td>海岸草叢 2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>弓箭手村</td>
+                            <td>弓箭手村</td>
+                            <td>麗娜</td>
+                            <td>弓箭手訓練場 2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>勇士之村</td>
+                            <td>勇士之村</td>
+                            <td>麥吉</td>
+                            <td>勇士之村東入口／火焰之地 I</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>墮落城市</td>
+                            <td>墮落城市</td>
+                            <td>馬提厄斯</td>
+                            <td>地鐵一號線</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>魔法森林</td>
+                            <td>魔法森林</td>
+                            <td>妖精維英</td>
+                            <td>猴子森林I</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>鯨魚號</td>
+                            <td>鯨魚號上層走廊</td>
+                            <td>盲俠</td>
+                            <td>弓箭手村東部小山</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>奇幻村</td>
+                            <td>奇幻村</td>
+                            <td>記憶者</td>
+                            <td>螞蟻洞2/火毒眼獸洞穴 1~4</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>天空之城</td>
+                            <td>天空之城公園</td>
+                            <td>管家艾瑪</td>
+                            <td>黃光庭園 2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>冰原雪域</td>
+                            <td>冰原雪域</td>
+                            <td>史卡圖勒</td>
+                            <td>結冰的平原 1-2</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>水世界</td>
+                            <td>太公的渡船</td>
+                            <td>太公</td>
+                            <td>四角地帶，近戰建議可以到綠海藻之地中間上方隱藏傳點進入魚兒休息地</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>玩具城</td>
+                            <td>玩具城村莊</td>
+                            <td>棋高</td>
+                            <td>雲彩露臺 5</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>童話村</td>
+                            <td>童話村</td>
+                            <td>樂夫</td>
+                            <td>烏山深處／月亮山坡</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>地球防衛總部</td>
+                            <td>地球防衛總部</td>
+                            <td>祕密幹員</td>
+                            <td>羅威草原 4</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>古代神社</td>
+                            <td>古代神社</td>
+                            <td>亞希子</td>
+                            <td>消失的村落</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>昭和村</td>
+                            <td>昭和商店街</td>
+                            <td>繪里香</td>
+                            <td>澡堂</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>101大道</td>
+                            <td>101大道</td>
+                            <td>吳健豪</td>
+                            <td>鬼兔妮／其實都可（除了香水）</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>桃花仙境</td>
+                            <td>太常的家</td>
+                            <td>太常</td>
+                            <td>花蛇的領地</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>靈藥幻境</td>
+                            <td>靈藥幻境</td>
+                            <td>裘老頭</td>
+                            <td>貧脊的藥草田</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>新加坡</td>
+                            <td>新加坡</td>
+                            <td>愛茹</td>
+                            <td>烏魯莊園 1</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>馬來西亞</td>
+                            <td>寧濘草原外圍</td>
+                            <td>胡莉茲</td>
+                            <td>木槿路 2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>納希沙漠</td>
+                            <td>納希宮殿</td>
+                            <td>提肯</td>
+                            <td>圍巾蜥蜴的領土</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>瑪伽提亞城</td>
+                            <td>瑪伽提亞城</td>
+                            <td>仲介商</td>
+                            <td>研究所 C-3 區／研究所 202 號房</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>少林寺</td>
+                            <td>山腳</td>
+                            <td>小青瓦</td>
+                            <td>藏經閣 3、4 層</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>神木村</td>
+                            <td>庫摩之家</td>
+                            <td>庫摩</td>
+                            <td>米納爾森林西邊境界</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>水上市場</td>
+                            <td>水上市場</td>
+                            <td>隆迪</td>
+                            <td>猴子寺廟 3</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>黃金海灘</td>
+                            <td>黃金海灘</td>
+                            <td>露爾</td>
+                            <td>海龜沙灘</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>不夜城</td>
+                            <td>不夜城</td>
+                            <td>海產店老闆</td>
+                            <td>夜市徒步區 3、夜市徒步區 4、夜市徒步區 5</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>新葉城</td>
+                            <td>新葉城</td>
+                            <td>新葉城市長</td>
+                            <td>馬萊尼西亞島 叢林山谷</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>時間神殿</td>
+                            <td>時間神殿</td>
+                            <td>神殿管理人</td>
+                            <td>都可以，看你要打綠色心臟還是祭司／神官的面具</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>上海灘</td>
+                            <td>上海灘</td>
+                            <td>公安局長</td>
+                            <td>黑羊領土</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>楓之島</td>
+                            <td>楓葉村</td>
+                            <td>路卡斯</td>
+                            <td>岔路 番茄園</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

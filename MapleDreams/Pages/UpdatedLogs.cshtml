@@ -1,0 +1,42 @@
+@page
+@model MapleDreams.Pages.UpdatedLogsModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "更新日誌";
+}
+
+<div class="container">
+    <h1 class="my-3">更新日誌</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-info text-center">
+                <th class="td-col-1">#</th>
+                <th class="td-col-1">日期</th>
+                <th class="td-col-8 text-left">內容</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = Model.UpdatedLogList.Count;
+                foreach (var key in Model.UpdatedLogList.Keys.OrderByDescending(key => key.Ticks))
+                {
+                    var logItem = Model.UpdatedLogList[key];
+                    <tr class="text-center">
+                        <td>@(i--)</td>
+                        <td>@(key.ToString("yyyy-MM-dd"))</td>
+                        <td class="text-left">
+                            @for (int j = 0; j < logItem.Count; j++)
+                            {
+                                @Html.Raw(logItem[j]);
+                                if (j != logItem.Count - 1)
+                                {
+                                    <br />
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
