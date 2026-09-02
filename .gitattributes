@@ -1,7 +1,17 @@
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
+#
+# Source files are stored with LF and checked out per platform. The exceptions
+# below are files that must keep LF even on Windows, because they are consumed
+# by Linux tooling (Docker, shell).
 ###############################################################################
 * text=auto
+
+*.sh text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+.dockerignore text eol=lf
+Dockerfile text eol=lf
 
 ###############################################################################
 # Set default behavior for command prompt diff.

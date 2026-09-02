@@ -1,0 +1,84 @@
+###############################################################################
+# Build context exclusions, grouped by category and sorted within each group.
+#
+# The build context is the repository root, see Docker/Dockerfile. Keeping the
+# context small keeps builds fast and stops files the image never needs from
+# invalidating the layer cache.
+###############################################################################
+
+###############################################################################
+# Build output
+###############################################################################
+**/[Bb]in/
+**/[Oo]bj/
+**/[Oo]ut/
+**/publish/
+
+###############################################################################
+# Docker
+#
+# The Dockerfile and compose files are read by the daemon, not copied in.
+###############################################################################
+**/.dockerignore
+**/compose*.y*ml
+**/docker-compose*.y*ml
+**/Dockerfile*
+Docker/
+
+###############################################################################
+# Documentation and licensing
+###############################################################################
+**/*.md
+**/LICENSE*
+
+###############################################################################
+# IDE and editor state
+###############################################################################
+**/.editorconfig
+**/.idea/
+**/.vs/
+**/.vscode/
+**/*.sln
+**/*.suo
+**/*.user
+
+###############################################################################
+# Restored client-side libraries
+#
+# Re-restored inside the image by `dotnet libman restore`, see Dockerfile.
+###############################################################################
+wwwroot/lib/
+
+###############################################################################
+# Runtime artifacts
+#
+# The database is created on first start when absent and the logs are written
+# by the app, neither belongs in the build context.
+###############################################################################
+**/*.db-shm
+**/*.db-wal
+**/*.db-journal
+wwwroot/logs/
+
+###############################################################################
+# Secrets and local configuration
+#
+# The real appsettings.json is copied into the image, the tracked template and
+# every environment override are not.
+###############################################################################
+**/*.env
+**/*.key
+**/*.p12
+**/*.pem
+**/*.pfx
+**/.env.*
+**/appsettings.*.json
+**/secrets.json
+!**/appsettings.json
+
+###############################################################################
+# Version control
+###############################################################################
+**/.git/
+**/.gitattributes
+**/.gitignore

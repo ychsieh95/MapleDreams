@@ -34,6 +34,10 @@ builder.Services.AddRazorPages()
 
 var app = builder.Build();
 
+// Create the SQLite database and its tables when they do not exist yet
+builder.Configuration.GetConnectionString("MapleDreamsConnection")
+    .EnsureSqliteDatabaseCreated(app.Logger);
+
 app.UseExceptionHandler(new ExceptionHandlerOptions()
 {
     ExceptionHandler = async context =>

@@ -363,23 +363,46 @@ MigrationBackup/
 FodyWeavers.xsd
 
 ###############################################################################
-# ASP.NET Core environment-specific configuration
+# ASP.NET Core configuration
 #
-# appsettings.json (base config) is tracked as a template. Environment
-# overrides may contain local/secret values and should not be committed.
+# `appsettings.Example.json` is the tracked template. The real `appsettings.json`
+# and every environment override hold local/secret values (connection strings,
+# hosts) and stay on the machine that owns them. Copy the example to get started:
+#   cp appsettings.Example.json appsettings.json
 ###############################################################################
+appsettings.json
 appsettings.*.json
-!appsettings.json
+!appsettings.Example.json
 
 ###############################################################################
-# Secrets
+# Secrets and credentials
+#
+# Certificates, keys and any local credential store. `appsettings.Example.json`
+# is the tracked template, the real config and every override are ignored above.
 ###############################################################################
+*.crt
 *.env
-.env.*
-secrets.json
-*.p12
+*.jks
 *.key
+*.keystore
+*.p12
 *.pem
+*.pfx
+*.snk
+.env.*
+NuGet.Config
+nuget.config
+secrets.json
+
+###############################################################################
+# Runtime data
+#
+# `files/database/mapledreams.db` is the tracked seed database, the app creates
+# it on start when missing. SQLite's sidecar files are per-run state.
+###############################################################################
+*.db-journal
+*.db-shm
+*.db-wal
 
 ###############################################################################
 # Libman-restored client-side libraries
@@ -387,13 +410,13 @@ secrets.json
 # Restored from libman.json via `dotnet libman restore` (or automatically by
 # Visual Studio on build). Not authored in this repo.
 ###############################################################################
-MapleDreams/wwwroot/lib/
+wwwroot/lib/
 
 ###############################################################################
 # Docker
 #
-# docker-compose.yml is environment/host-specific (ports, volumes); see
-# README for the reference compose file to copy locally.
+# `Docker/compose.yml` is the tracked reference stack. Override files are
+# host-specific (ports, volumes, secrets) and stay local.
 ###############################################################################
-docker-compose.yml
+compose.override.yml
 docker-compose.override.yml

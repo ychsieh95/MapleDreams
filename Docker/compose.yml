@@ -1,0 +1,25 @@
+# Build context is the repository root, run from this directory:
+#   docker compose up -d --build
+
+name: mapledreams
+
+services:
+  mapledreams-docker:
+    image: mapledreams-docker
+    container_name: mapledreams-docker
+    build:
+      context: ..
+      dockerfile: Docker/Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      # Keeps the SQLite database and the error logs across container rebuilds.
+      # On first start the seeded database is copied into the volume, an empty
+      # volume is initialised by the app instead.
+      - mapledreams-database:/app/files/database
+      - mapledreams-logs:/app/wwwroot/logs
+
+volumes:
+  mapledreams-database:
+  mapledreams-logs:
